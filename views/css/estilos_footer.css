@@ -1,0 +1,20 @@
+.a-footer {
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.p-footer {
+    font-size: 17px;
+}
+
+.a-footer:hover {
+    color: #0D6EFD !important;
+}
+
+.i-footer {
+    font-size: 25px;
+}
+
+.mapa {
+    margin-bottom: 15px;
+}

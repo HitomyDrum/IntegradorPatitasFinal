@@ -1,0 +1,55 @@
+.btn-patitas {
+    margin-left: 15px;
+    color: #fff;
+    background-color: #fc036b;
+    border-color: #fc036b;
+}
+
+.btn-patitas-transparente {
+    color: #fff;
+    border: 3px solid #fc036b;
+}
+
+.btn-patitas:hover {
+    color: #fff;
+    background-color:deeppink;
+    border-color: deeppink
+}
+
+.btn-patitas-transparente:hover {
+    color: #fff;
+    background-color: #fc036b;
+}
+
+.btn-check:focus+.btn-patitas,
+.btn-patitas:focus {
+    color: #fff;
+    background-color: #fc036b;
+    border-color: deeppink;
+    box-shadow: 0 0 0 .25rem rgba(150, 12, 111, 0.5)
+}
+
+.btn-check:active+.btn-patitas,
+.btn-check:checked+.btn-patitas,
+.btn-patitas.active,
+.btn-patitas:active,
+.show>.btn-patitas.dropdown-toggle {
+    color: #fff;
+    background-color: #fc036b;
+    border-color: deeppink;
+}
+
+.btn-check:active+.btn-patitas:focus,
+.btn-check:checked+.btn-patitas:focus,
+.btn-patitas.active:focus,
+.btn-patitas:active:focus,
+.show>.btn-patitas.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .25rem rgba(150, 12, 111, 0.5)
+}
+
+.btn-patitas.disabled,
+.btn-patitas:disabled {
+    color: #fff;
+    background-color: #fc036b;
+    border-color: deeppink;
+}

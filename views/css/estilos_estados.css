@@ -1,0 +1,21 @@
+.estado {
+    padding: .5rem 0;
+    border-radius: 1rem;
+    text-align: center;
+}
+.pendiente {
+    background-color:#fff3cd;
+    color: #664d03;
+    border-color: #ffecb5;
+}
+
+
+
+
+
+/************** Estado de Mascota ***************/
+.saludable {
+    background-color:#d1e7dd;
+    color: #0f5132;
+    border-color: #badbcc;
+}

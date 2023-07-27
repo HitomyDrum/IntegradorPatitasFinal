@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de redirección</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("keydown", function(event) {
+                if (event.which == 119) { // Código de la tecla F8
+                    window.open("https://www.otra-pestaña.com", "_blank");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Ejemplo de redirección con F8</h1>
+    <p>Pulsa la tecla F8 para abrir otra pestaña</p>
+</body>
+</html>

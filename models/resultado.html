@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SEEKER</title>
+
+    <meta name="description" content="SmartAdmin WebApp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+    <!-- Call App Mode on ios devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="icon" type="image/x-icon" href="http://167.114.113.144/buscador/assets/img/search.svg" />
+    <link rel="stylesheet" media="screen, print" href="http://167.114.113.144/buscador/assets/css/vendors.bundle.css">
+    <link rel="stylesheet" media="screen, print"
+        href="http://167.114.113.144/buscador/assets/css/datagrid/datatables/datatables.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="http://167.114.113.144/buscador/assets/css/app.bundle.css">
+    <link id="mytheme" rel="stylesheet" href="http://167.114.113.144/buscador/assets/css/cust-theme-3.css">
+    <link rel="stylesheet" media="screen, print" href="http://167.114.113.144/buscador/assets/css/fa-brands.css">
+    <link rel="mask-icon" href="http://167.114.113.144/buscador/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+
+</head>
+
+<body class="mod-bg-1 desktop chrome webkit nav-function-top pace-done blur">
+
+    <div class="page-wrapper">
+        <div class="page-inner">
+            <aside class="page-sidebar">
+                <div class="page-logo">
+                    <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative"
+                        data-toggle="modal" data-target="#modal-shortcut">
+                        <span class="page-logo-text mr-1"
+                            style="padding: 0px 7px 0px 7px;font-family: sans-serif;font-size: 26px;text-align: center;font-weight: bolder;border: 4px solid #e0e6ee;border-radius: 5px;">
+                            SEEKER</span>
+                        <span
+                            class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"><!--SLIM Project--></span>
+                        <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+                    </a>
+                </div>
+
+
+
+
+
+                <!-- BEGIN PRIMARY NAVIGATION -->
+                <nav id="js-primary-nav" class="primary-nav" role="navigation">
+                    <div class="nav-filter">
+                        <div class="position-relative">
+                            <input type="text" id="nav_filter_input" placeholder="Filter menu" class="form-control"
+                                tabindex="0">
+                            <a href="#" onclick="return false;" class="btn-primary btn-search-close js-waves-off"
+                                data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar">
+                                <i class="fal fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <ul id="" class="nav-menu">
+                        <li>
+                            <a href="#" title="Application Intel" data-filter-tags="application intel">
+                                <i class="fal fa-home"></i>
+                                <span class="nav-link-text" data-i18n="nav.application_intel">Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://167.114.113.144/buscador/Inicio">
+                                <i class="fal fa-search"></i>
+                                <span class="nav-link-text">Busqueda Individual</span>
+                            </a>
+                        </li>
+                        <!-- <li>
+                                <a href="http://167.114.113.144/buscador/Home/bs_mas" title="Package Info" data-filter-tags="package info">
+                                    <i class="fal fa-file-excel"></i>
+                                    <span class="nav-link-text" data-i18n="nav.package_info">Busqueda Masiva</span>
+                                </a>
+                            </li>-->
+                    </ul>
+
+                </nav>
+                <!-- END PRIMARY NAVIGATION -->
+            </aside> <!-- BEGIN Left Aside -->
+
+            <!-- END Left Aside -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN Page Header -->
+                <header class="page-header">
+                    <!-- we need this logo when user switches to nav-function-top -->
+                    <div class="page-logo">
+                        <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative"
+                            data-toggle="modal" data-target="#modal-shortcut">
+                            <span class="page-logo-text mr-1"
+                                style="padding: 0px 7px 0px 7px;font-family: sans-serif;font-size: 26px;text-align: center;font-weight: bolder;border: 4px solid #e0e6ee;border-radius: 5px;">
+                                SEEKER</span>
+                            <span
+                                class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"><!--SLIM Project--></span>
+                            <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+                        </a>
+                    </div>
+                    <!-- DOC: mobile button appears during mobile width -->
+                    <div class="hidden-lg-up">
+                        <a href="#" class="header-btn btn press-scale-down" data-action="toggle"
+                            data-class="mobile-nav-on">
+                            <i class="ni ni-menu"></i>
+                        </a>
+                    </div>
+                    <div class="search">
+                        <form method="POST" action="http://167.114.113.144/buscador/Mostrar-informacion">
+                            <input type="text" name="dni" id="search-field" placeholder="Busqueda por documento"
+                                class="form-control">
+                            <a href="#" onclick="return false;" class="btn-danger btn-search-close js-waves-off d-none"
+                                data-action="toggle" data-class="mobile-search-on">
+                                <i class="fal fa-times"></i>
+                            </a>
+                        </form>
+                    </div>
+                    <div class="ml-auto d-flex">
+                        <!-- activate app search icon (mobile) -->
+                        <div class="hidden-sm-up">
+                            <a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on"
+                                data-focus="search-field" title="Search">
+                                <i class="fal fa-search"></i>
+                            </a>
+                        </div>
+
+                        <!-- app notification -->
+                        <div>
+                            <!-- <a href="#" class="header-icon" data-toggle="dropdown" title="You got 11 notifications">
+                                    <i class="fal fa-bell"></i>
+                                    <span class="badge badge-icon">11</span>
+                                </a>-->
+                            <div class="dropdown-menu dropdown-menu-animated dropdown-xl">
+                                <div
+                                    class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top mb-2">
+                                    <h4 class="m-0 text-center color-white">
+                                        11 New
+                                        <small class="mb-0 opacity-80">User Notifications</small>
+                                    </h4>
+                                </div>
+                                <ul class="nav nav-tabs nav-tabs-clean" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab"
+                                            href="#tab-messages" data-i18n="drpdwn.messages">Messages</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab"
+                                            href="#tab-feeds" data-i18n="drpdwn.feeds">Feeds</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link px-4 fs-md js-waves-on fw-500" data-toggle="tab"
+                                            href="#tab-events" data-i18n="drpdwn.events">Events</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content tab-notification">
+                                    <div class="tab-pane active p-3 text-center">
+                                        <h5 class="mt-4 pt-4 fw-500">
+                                            <span class="d-block fa-3x pb-4 text-muted">
+                                                <i class="ni ni-arrow-up text-gradient opacity-70"></i>
+                                            </span> Select a tab above to activate
+                                            <small class="mt-3 fs-b fw-400 text-muted">
+                                                This blank page message helps protect your privacy, or you can show the
+                                                first message here automatically through
+                                                <a href="#">settings page</a>
+                                            </small>
+                                        </h5>
+                                    </div>
+                                    <div class="tab-pane" id="tab-feeds" role="tabpanel">
+                                        <div class="custom-scroll h-100">
+                                            <ul class="notification">
+                                                <li class="unread">
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <span class="d-flex flex-column flex-1">
+                                                            <span class="name d-flex align-items-center">Administrator
+                                                                <span
+                                                                    class="badge badge-success fw-n ml-1">UPDATE</span></span>
+                                                            <span class="msg-a fs-sm">
+                                                                System updated to version <strong>4.0.1</strong> <a
+                                                                    href="intel_build_notes.html">(patch notes)</a>
+                                                            </span>
+                                                            <span class="fs-nano text-muted mt-1">5 mins ago</span>
+                                                        </span>
+                                                        <div
+                                                            class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                            <a href="#" class="text-muted" title="delete"><i
+                                                                    class="fal fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <div class="d-flex flex-column flex-1">
+                                                            <span class="name">
+                                                                Adison Lee <span class="fw-300 d-inline">replied to your
+                                                                    video <a href="#" class="fw-400"> Cancer Drug</a>
+                                                                </span>
+                                                            </span>
+                                                            <span class="msg-a fs-sm mt-2">Bring to the table win-win
+                                                                survival strategies to ensure proactive domination. At
+                                                                the end of the day...</span>
+                                                            <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                                                        </div>
+                                                        <div
+                                                            class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                            <a href="#" class="text-muted" title="delete"><i
+                                                                    class="fal fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <!--<img src="img/demo/avatars/avatar-m.png" data-src="img/demo/avatars/avatar-k.png" class="profile-image rounded-circle" alt="k" />-->
+                                                        <div class="d-flex flex-column flex-1">
+                                                            <span class="name">
+                                                                Troy Norman'<span class="fw-300">s new
+                                                                    connections</span>
+                                                            </span>
+                                                            <div class="fs-sm d-flex align-items-center mt-2">
+                                                                <span
+                                                                    class="profile-image-md mr-1 rounded-circle d-inline-block"
+                                                                    style="background-image:url('http://167.114.113.144/buscador/assets/img/demo/avatars/avatar-a.png'); background-size: cover;"></span>
+                                                                <span
+                                                                    class="profile-image-md mr-1 rounded-circle d-inline-block"
+                                                                    style="background-image:url('http://167.114.113.144/buscador/assets/img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
+                                                                <span
+                                                                    class="profile-image-md mr-1 rounded-circle d-inline-block"
+                                                                    style="background-image:url('http://167.114.113.144/buscador/assets/img/demo/avatars/avatar-c.png'); background-size: cover;"></span>
+                                                                <span
+                                                                    class="profile-image-md mr-1 rounded-circle d-inline-block"
+                                                                    style="background-image:url('http://167.114.113.144/buscador/assets/img/demo/avatars/avatar-e.png'); background-size: cover;"></span>
+                                                                <div data-hasmore="+3"
+                                                                    class="rounded-circle profile-image-md mr-1">
+                                                                    <span
+                                                                        class="profile-image-md mr-1 rounded-circle d-inline-block"
+                                                                        style="background-image:url('http://167.114.113.144/buscador/assets/img/demo/avatars/avatar-h.png'); background-size: cover;"></span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                                                        </div>
+                                                        <div
+                                                            class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                            <a href="#" class="text-muted" title="delete"><i
+                                                                    class="fal fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <!--<img src="img/demo/avatars/avatar-m.png" data-src="img/demo/avatars/avatar-e.png" class="profile-image-sm rounded-circle align-self-start mt-1" alt="k" />-->
+                                                        <div class="d-flex flex-column flex-1">
+                                                            <span class="name">Dr John Cook <span class="fw-300">sent a
+                                                                    <span class="text-danger">new
+                                                                        signal</span></span></span>
+                                                            <span class="msg-a fs-sm mt-2">Nanotechnology immersion
+                                                                along the information highway will close the loop on
+                                                                focusing solely on the bottom line.</span>
+                                                            <span class="fs-nano text-muted mt-1">10 minutes ago</span>
+                                                        </div>
+                                                        <div
+                                                            class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                            <a href="#" class="text-muted" title="delete"><i
+                                                                    class="fal fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <div class="d-flex flex-column flex-1">
+                                                            <span class="name">Lab Images <span class="fw-300">were
+                                                                    updated!</span></span>
+                                                            <div class="fs-sm d-flex align-items-center mt-1">
+                                                                <a href="#" class="mr-1 mt-1" title="Cell A-0012">
+                                                                    <span class="d-block img-share"
+                                                                        style="background-image:url('http://167.114.113.144/buscador/assets/img/thumbs/pic-7.png'); background-size: cover;"></span>
+                                                                </a>
+                                                                <a href="#" class="mr-1 mt-1"
+                                                                    title="Patient A-473 saliva">
+                                                                    <span class="d-block img-share"
+                                                                        style="background-image:url('http://167.114.113.144/buscador/assets/img/thumbs/pic-8.png'); background-size: cover;"></span>
+                                                                </a>
+                                                                <a href="#" class="mr-1 mt-1"
+                                                                    title="Patient A-473 blood cells">
+                                                                    <span class="d-block img-share"
+                                                                        style="background-image:url('http://167.114.113.144/buscador/assets/img/thumbs/pic-11.png'); background-size: cover;"></span>
+                                                                </a>
+                                                                <a href="#" class="mr-1 mt-1"
+                                                                    title="Patient A-473 Membrane O.C">
+                                                                    <span class="d-block img-share"
+                                                                        style="background-image:url('http://167.114.113.144/buscador/assets/img/thumbs/pic-12.png'); background-size: cover;"></span>
+                                                                </a>
+                                                            </div>
+                                                            <span class="fs-nano text-muted mt-1">55 minutes ago</span>
+                                                        </div>
+                                                        <div
+                                                            class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                            <a href="#" class="text-muted" title="delete"><i
+                                                                    class="fal fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center show-child-on-hover">
+                                                        <!--<img src="img/demo/avatars/avatar-m.png" data-src="img/demo/avatars/avatar-h.png" class="profile-image rounded-circle align-self-start mt-1" alt="k" />-->
+                                                        <div class="d-flex flex-column flex-1">
+                                                            <div class="name mb-2">
+                                                                Lisa Lamar<span class="fw-300"> updated project</span>
+                                                            </div>
+                                                            <div class="row fs-b fw-300">
+                                                                <div class="col text-left">
+                                                                    Progress
+                                                                </div>
+                                                                <div class="col text-right fw-500">
+                                                                    45%
+                                                                </div>
+                                                            </div>
+                                                            <div class="progress progress-sm d-flex mt-1">
+                                                                <span
+                                                                    class="progress-bar bg-primary-500 progress-bar-striped"
+                                                                    role="progressbar" style="width: 45%"
+                                                                    aria-valuenow="45" aria-valuemin="0"
+                                                                    aria-valuemax="100"></span>
+                                                            </div>
+                                                            <span class="fs-nano text-muted mt-1">2 hrs ago</span>
+                                                            <div
+                                                                class="show-on-hover-parent position-absolute pos-right pos-bottom p-3">
+                                                                <a href="#" class="text-muted" title="delete"><i
+                                                                        class="fal fa-trash-alt"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-events" role="tabpanel">
+                                        <div class="d-flex flex-column h-100">
+                                            <div class="h-auto">
+                                                <table
+                                                    class="table table-bordered table-calendar m-0 w-100 h-100 border-0">
+                                                    <tr>
+                                                        <th colspan="7" class="pt-3 pb-2 pl-3 pr-3 text-center">
+                                                            <div class="js-get-date h5 mb-2">[your date here]</div>
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <th>Sun</th>
+                                                        <th>Mon</th>
+                                                        <th>Tue</th>
+                                                        <th>Wed</th>
+                                                        <th>Thu</th>
+                                                        <th>Fri</th>
+                                                        <th>Sat</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted bg-faded">30</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td><i
+                                                                class="fal fa-birthday-cake mt-1 ml-1 position-absolute pos-left pos-top text-primary"></i>
+                                                            6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td class="bg-primary-300 pattern-0">10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td class="text-muted bg-faded">1</td>
+                                                        <td class="text-muted bg-faded">2</td>
+                                                        <td class="text-muted bg-faded">3</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="flex-1 custom-scroll">
+                                                <div class="p-2">
+                                                    <div class="d-flex align-items-center text-left mb-3">
+                                                        <div
+                                                            class="width-5 fw-300 text-primary l-h-n mr-1 align-self-start fs-xxl">
+                                                            15
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="l-h-n fs-md fw-500 opacity-70">
+                                                                    October 2020
+                                                                </span>
+                                                                <span class="l-h-n fs-nano fw-400 text-secondary">
+                                                                    Friday
+                                                                </span>
+                                                            </div>
+                                                            <div class="mt-3">
+                                                                <p>
+                                                                    <strong>2:30PM</strong> - Doctor's appointment
+                                                                </p>
+                                                                <p>
+                                                                    <strong>3:30PM</strong> - Report overview
+                                                                </p>
+                                                                <p>
+                                                                    <strong>4:30PM</strong> - Meeting with Donnah V.
+                                                                </p>
+                                                                <p>
+                                                                    <strong>5:30PM</strong> - Late Lunch
+                                                                </p>
+                                                                <p>
+                                                                    <strong>6:30PM</strong> - Report Compression
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="py-2 px-3 bg-faded d-block rounded-bottom text-right border-faded border-bottom-0 border-right-0 border-left-0">
+                                    <a href="#" class="fs-xs fw-500 ml-auto">view all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- app user menu -->
+                        <div>
+                            <a href="#" data-toggle="dropdown" title="drlantern@gotbootstrap.com"
+                                class="header-icon d-flex align-items-center justify-content-center ml-2">
+                                <img src="http://167.114.113.144/buscador/assets/img/usuario/user.png"
+                                    class="profile-image rounded-circle" alt="Dr. Codex Lantern">
+                                <!-- you can also add username next to the avatar with the codes below:
+                                    <span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">Me</span>
+                                    <i class="ni ni-chevron-down hidden-xs-down"></i> -->
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+
+                                <div class="dropdown-divider m-0"></div>
+                                <!--<a href="#" class="dropdown-item" data-action="app-reset">
+                                        <span data-i18n="drpdwn.reset_layout">Reset Layout</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item" data-toggle="modal" data-target="">
+                                        <span data-i18n="drpdwn.settings">Settings</span>
+                                    </a>-->
+                                <div class="dropdown-divider m-0"></div>
+                                <a href="#" class="dropdown-item" data-action="app-fullscreen">
+                                    <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+                                    <i class="float-right text-muted fw-n">F11</i>
+                                </a>
+                                <a href="#" class="dropdown-item" data-action="app-print">
+                                    <span data-i18n="drpdwn.print">Print</span>
+                                    <i class="float-right text-muted fw-n">Ctrl + P</i>
+                                </a>
+                                <div class="dropdown-multilevel dropdown-multilevel-left">
+                                    <!-- <div class="dropdown-item">
+                                            Language
+                                        </div>-->
+                                    <div class="dropdown-menu">
+                                        <a href="#?lang=fr" class="dropdown-item" data-action="lang"
+                                            data-lang="fr">Français</a>
+                                        <a href="#?lang=en" class="dropdown-item active" data-action="lang"
+                                            data-lang="en">English (US)</a>
+                                        <a href="#?lang=es" class="dropdown-item" data-action="lang"
+                                            data-lang="es">Español</a>
+                                        <a href="#?lang=ru" class="dropdown-item" data-action="lang"
+                                            data-lang="ru">Русский язык</a>
+                                        <a href="#?lang=jp" class="dropdown-item" data-action="lang"
+                                            data-lang="jp">日本語</a>
+                                        <a href="#?lang=ch" class="dropdown-item" data-action="lang"
+                                            data-lang="ch">中文</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item fw-500 pt-3 pb-3" href="http://167.114.113.144/buscador/Cerrar">
+                                    <span data-i18n="drpdwn.page-logout">Cerrar Sesion</span>
+                                    <!-- <span class="float-right fw-n">&commat;codexlantern</span>-->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+
+
+
+                <!-- END Page Header -->
+                <!-- BEGIN Page Content -->
+                <!-- the #js-page-content id is needed for some plugins to initialize -->
+
+
+
+                <!-- this overlay is activated only when mobile menu is triggered -->
+                <!-- END Page Content -->
+                <!-- BEGIN Page Footer -->
+
+                <!-- END Page Wrapper -->
+                <!-- base vendor bundle:
+             DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations
+                        + pace.js (recommended)
+                        + jquery.js (core)
+                        + jquery-ui-cust.js (core)
+                        + popper.js (core)
+                        + bootstrap.js (core)
+                        + slimscroll.js (extension)
+                        + app.navigation.js (core)
+                        + ba-throttle-debounce.js (core)
+                        + waves.js (extension)
+                        + smartpanels.js (extension)
+                        + src/../jquery-snippets.js (core) -->
+
+                <!--<script src="js/../script.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>-->
+
+                <main id="js-page-content" role="main" class="page-content">
+
+
+
+                    <div class="subheader">
+                        <h1 class="subheader-title">
+                            <i class='subheader-icon fal fa-'></i> DATOS DEL CLIENTE <sup
+                                class='badge badge-primary fw-500'>TELEFONO VALIDADO</sup>
+                        </h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-xl-3 order-lg-1 order-xl-1">
+                            <!-- profile summary -->
+                            <div class="card mb-g rounded-top">
+                                <div class="row no-gutters row-grid">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-column align-items-center justify-content-center p-4">
+                                            <img src="http://app.seeker.pe/faces/40041222.jpg"
+                                                class="rounded-circle shadow-2 img-thumbnail" alt="">
+                                            <h5 class="mb-0 fw-700 text-center mt-3">
+                                                JUAN ERWIN CABALLERO ALIPAZAGA <small class="text-muted mb-0">CAL C 125
+                                                    URB BARTOLOME HERRERA</small>
+                                                <small class="text-muted mb-0">LIMA-LIMA-SAN MIGUEL</small>
+                                            </h5>
+                                        </div>
+
+                                        <table class="table m-0">
+                                            <thead class="bg-fusion-50">
+                                                <tr>
+                                                    <th>Nª Documento</th>
+                                                    <th>40041222</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Nacimiento</td>
+                                                    <td>1978-11-14</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lugar de Nacimiento</td>
+                                                    <td>LIMA LIMA JESUS MARIA</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Estado Civil</td>
+                                                    <td>SOLTERO</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sexo</td>
+                                                    <td>
+
+                                                        MASCULINO
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Padre</td>
+                                                    <td>RAUL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Madre</td>
+                                                    <td>NANCY</td>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div><!--
+                                        <div class="col-6">
+                                            <div class="text-center py-3">
+                                                <h5 class="mb-0 fw-700">
+                                                    764
+                                                    <small class="text-muted mb-0">Busquedas</small>
+                                                </h5>
+                                            </div>
+                                        </div>-->
+                                    <!-- <div class="col-6">
+                                            <div class="text-center py-3">
+                                                <h5 class="mb-0 fw-700">
+                                                    1,673
+                                                    <small class="text-muted mb-0">Llamadas</small>
+                                                </h5>
+                                            </div>
+                                        </div>-->
+                                </div>
+                            </div>
+
+                            <div class="card custom-scrollbar">
+                                <div class="w-100">
+                                    <div class="nav-title m-0 px-3 text-muted">Familiares</div>
+                                    <ul class="list-unstyled m-0">
+
+
+                                    </ul>
+                                    <!--<div class="nav-title px-3 text-muted">Llamadas Realizadas</div>-->
+                                    <!--<ul class="list-unstyled m-0">
+                                                                                        <li>
+                                                                                                <div class="d-flex w-100 px-3 py-2 text-dark hover-white cursor-pointer show-child-on-hover">
+                                                                                                        <div class="profile-image-md rounded-circle" style="background-image:url('img/demo/avatars/avatar-m.png'); background-size: cover;"></div>
+                                                                                                        <div class="px-2 flex-1">
+                                                                                                                <div class="text-truncate text-truncate-md">
+
+        +714651347790
+
+        <small class="d-block font-italic fs-xs opacity-50">
+
+                Missed Call
+
+        </small>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                        <div class="position-absolute pos-right mt-2 mr-3 show-on-hover-parent">
+                                                                                                                <button class="btn btn-success btn-xs btn-icon rounded-circle shadow-0" data-toggle="tooltip" data-template="<div class=&quot;tooltip&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-success-500&quot;></div></div>" data-original-title="Play voicemail">
+
+        <i class="fal fa-play"></i>
+                                                                                                                </button>
+                                                                                                                <button class="btn btn-info btn-xs btn-icon rounded-circle shadow-0" data-toggle="tooltip" data-template="<div class=&quot;tooltip&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-info-500&quot;></div></div>" data-original-title="Call back">
+
+        <i class="fal fa-phone"></i>
+                                                                                                                </button>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                                <div class="d-flex w-100 px-3 py-2 text-dark hover-white cursor-pointer show-child-on-hover">
+                                                                                                        <div class="profile-image-md rounded-circle" style="background-image:url('img/demo/avatars/avatar-m.png'); background-size: cover;"></div>
+                                                                                                        <div class="px-2 flex-1">
+                                                                                                                <div class="text-truncate text-truncate-md">
+
+        +13471349199
+
+        <small class="d-block font-italic fs-xs opacity-50">
+
+                Ended in 32 minutes
+
+        </small>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                        <div class="position-absolute pos-right mt-2 mr-3 show-on-hover-parent">
+                                                                                                                <button class="btn btn-info btn-xs btn-icon rounded-circle shadow-0" data-toggle="tooltip" data-template="<div class=&quot;tooltip&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-info-500&quot;></div></div>" data-original-title="Call back">
+
+        <i class="fal fa-phone"></i>
+                                                                                                                </button>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </li>
+                                                                                </ul>-->
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-8 col-xl-9 order-lg-1 order-xl-1">
+
+
+
+
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab_borders_icons-1" role="tab"
+                                        aria-selected="true"><i class="fal fa-address-book mr-1"></i> DATOS
+                                        GENERALES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab_borders_icons-5" role="tab"
+                                        aria-selected="false"><i class="fal fa-user mr-1"></i>CENTRO LABORALES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab_borders_icons-2" role="tab"
+                                        aria-selected="false"><i class="fal fa-user mr-1"></i> SUNAT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab_borders_icons-3" role="tab"
+                                        aria-selected="false"><i class="fal fa-car mr-1"></i> VEHICULOS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab_borders_icons-4" role="tab"
+                                        aria-selected="false"><i class="fal fa-card mr-1"></i> RIESGO</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content border border-top-0 p-3" style="background-color: #fff;">
+                                <div class="tab-pane fade active show" id="tab_borders_icons-1" role="tabpanel">
+                                    <div id="msg-01"
+                                        class="d-flex flex-column border-faded border-top-0 border-left-0 border-right-0 py-3 px-3 px-sm-4 px-lg-0 mr-0 mr-lg-1 flex-shrink-0">
+                                        <div class="d-flex align-items-center flex-row">
+                                            <div class="ml-0 mr-3 mx-lg-3">
+                                                <i class="subheader-icon fal fa-phone"></i>
+                                            </div>
+                                            <div class="fw-500 flex-1 d-flex flex-column cursor-pointer"
+                                                data-toggle="collapse" data-target="#msg-01 > .js-collapse"
+                                                aria-expanded="true">
+                                                <div class="fs-lg">
+                                                    TELEFONOS
+                                                </div>
+                                                <!--    <div class="fs-nano">
+                                                                                                                Actualizado a Febrero 2019
+                                                                                                        </div>-->
+                                            </div>
+                                            <!--    <div class="color-fusion-200 fs-sm">
+                                                                                                        Ultima Busqueda <span class="hidden-sm-down">(29 de febrero 2019)</span>
+                                                                                                </div>-->
+                                            <div class="collapsed-reveal">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-icon ml-1 fs-lg rounded-circle">
+                                                    <i class="fal fa-reply"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="js-collapse collapse show" style=""><br>
+                                            <div class="table-responsive-lg">
+                                                <table class="table table-bordered table-hover m-0">
+                                                    <thead class="thead-themed">
+
+                                                        <tr>
+
+                                                            <th>#</th>
+
+                                                            <th>Telefono</th>
+
+                                                            <th>Operador</th>
+
+                                                            <th>Periodo</th>
+
+                                                            <th>Opciones</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        <tr>
+
+                                                            <td>1</td>
+                                                            <td>987203936</td>
+                                                            <td>claro</td>
+                                                            <td>202303</td>
+
+                                                            <td>
+
+                                                                <div class="ml-auto">
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-primary btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-comments fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-info btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-phone fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);" data-toggle="button"
+                                                                        class="btn btn-outline-danger btn-icon rounded-circle">
+
+                                                                        <i class="fal fa-stop fs-md"></i>
+
+                                                                    </a>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>2</td>
+                                                            <td>989367749</td>
+                                                            <td>claro</td>
+                                                            <td>202303</td>
+
+                                                            <td>
+
+                                                                <div class="ml-auto">
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-primary btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-comments fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-info btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-phone fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);" data-toggle="button"
+                                                                        class="btn btn-outline-danger btn-icon rounded-circle">
+
+                                                                        <i class="fal fa-stop fs-md"></i>
+
+                                                                    </a>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>3</td>
+                                                            <td>963556943</td>
+                                                            <td>claro</td>
+                                                            <td>202302</td>
+
+                                                            <td>
+
+                                                                <div class="ml-auto">
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-primary btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-comments fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-info btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-phone fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);" data-toggle="button"
+                                                                        class="btn btn-outline-danger btn-icon rounded-circle">
+
+                                                                        <i class="fal fa-stop fs-md"></i>
+
+                                                                    </a>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>4</td>
+                                                            <td>951312021</td>
+                                                            <td>claro</td>
+                                                            <td>202202</td>
+
+                                                            <td>
+
+                                                                <div class="ml-auto">
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-primary btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-comments fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);"
+                                                                        class="btn btn-outline-info btn-icon rounded-circle ml-1">
+
+                                                                        <i class="fal fa-phone fs-md"></i>
+
+                                                                    </a>
+
+                                                                    <a href="javascript:void(0);" data-toggle="button"
+                                                                        class="btn btn-outline-danger btn-icon rounded-circle">
+
+                                                                        <i class="fal fa-stop fs-md"></i>
+
+                                                                    </a>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div id="msg-02"
+                                        class="d-flex flex-column border-faded border-top-0 border-left-0 border-right-0 py-3 px-3 px-sm-4 px-lg-0 mr-0 mr-lg-5 flex-shrink-0">
+                                        <div class="d-flex align-items-center flex-row">
+                                            <div class="ml-0 mr-3 mx-lg-3">
+                                                <i class="subheader-icon fal fa-phone"></i>
+                                            </div>
+                                            <div class="fw-500 flex-1 d-flex flex-column cursor-pointer"
+                                                data-toggle="collapse" data-target="#msg-02 > .js-collapse"
+                                                aria-expanded="true">
+                                                <div class="fs-lg">
+                                                    DIRECCIONES
+                                                </div>
+                                                <!--    <div class="fs-nano">
+                                                                                                                Actualizado a Febrero 2019
+                                                                                                        </div>-->
+                                            </div>
+                                            <!--<div class="color-fusion-200 fs-sm">
+                                                                                                        Ultima Busqueda <span class="hidden-sm-down">(29 de febrero 2019)</span>
+                                                                                                </div>-->
+                                            <div class="collapsed-reveal">
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-icon ml-1 fs-lg rounded-circle">
+                                                    <i class="fal fa-reply"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="js-collapse collapse show" style=""><br>
+                                            <div class="table-responsive-lg">
+                                                <table class="table table-bordered table-hover m-0">
+                                                    <thead class="thead-themed">
+
+                                                        <tr>
+
+                                                            <th>#</th>
+
+                                                            <th>DEPARTAMENTO</th>
+                                                            <th>PROVINCIA</th>
+                                                            <th>DISTRITO</th>
+                                                            <th>DIRECCION</th>
+                                                            <th>PROCEDENCIA</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab_borders_icons-5" role="tabpanel">
+                                    <table class="table m-0">
+                                        <thead class="bg-fusion-50">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>RUC</th>
+                                                <th>DENOMINACIÓN</th>
+                                                <th>SITUACIÓN</th>
+                                                <th>VARIABLE</th>
+                                                <th>FECHA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="tab_borders_icons-2" role="tabpanel">
+                                    <table class="table m-0">
+                                        <thead class="bg-fusion-50">
+                                            <tr>
+                                                <th>Tipo</th>
+                                                <th>Descripción</th>
+                                            </tr>
+                                        </thead>
+
+
+
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Razón Social</th>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Número de RUC</th>
+                                                <td>10400412222</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nombre Comercial</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Tipo Empresa</th>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Dirección</th>
+                                                <td>LIMA Lima Pueblo Libre AV. JOSE RAMON PIZARRO</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Fecha de Inscripción</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estado</th>
+                                                <td>ACTIVO</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Fecha Baja</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Condicion</th>
+                                                <td>HABIDO</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Giro</th>
+                                                <td>?</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Contribuyente</th>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="tab_borders_icons-3" role="tabpanel">
+                                    <table class="table m-0">
+                                        <thead class="bg-fusion-50">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Marca</th>
+                                                <th>Placa</th>
+                                                <th>Clase</th>
+                                                <th>Año Fabricación</th>
+                                                <!--<th>Año Compra</th>-->
+                                                <th>Titular 1</th>
+                                                <th>Titular 2</th>
+                                                <!--<th>Tipo</th>-->
+                                                <th>Color</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>NISSAN</td>
+                                                <td>AGO305</td>
+                                                <td>BAYALFAB13SW14</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>VERDE</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>NISSAN</td>
+                                                <td>AIA269</td>
+                                                <td>BAYALHAB14FHA-C-U</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>ROJO</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>TOYOTA</td>
+                                                <td>AQY238</td>
+                                                <td>COROLLA 1.6 XLI AUT.</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>GRIS PURPURA METALIC</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>SUZUKI</td>
+                                                <td>ATD678</td>
+                                                <td>SX-4</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>ROJO</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>NISSAN</td>
+                                                <td>B8U144</td>
+                                                <td>TIIDA</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>PLATA</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>SUBARU</td>
+                                                <td>BOD026</td>
+                                                <td>IMPREZA</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>PLATA</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>TOYOTA</td>
+                                                <td>BOF374</td>
+                                                <td>YARIS</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>GRIS OSCURO METALICO</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>TOYOTA</td>
+                                                <td>CGA412</td>
+                                                <td>YARIS XLI 1.3 GSL</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>AZUL METALICO</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>HONDA</td>
+                                                <td>DO6886</td>
+                                                <td>CIVIC</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CELESTE</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">10</th>
+                                                <td>SUZUKI</td>
+                                                <td>F1F636</td>
+                                                <td>AERIO</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>BEIGE</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">11</th>
+                                                <td>TOYOTA</td>
+                                                <td>GQ7923</td>
+                                                <td>COROLLA 1600</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>ROJO</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">12</th>
+                                                <td>HONDA</td>
+                                                <td>RIQ660</td>
+                                                <td>CRV</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>AZUL</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th scope="row">13</th>
+                                                <td>NISSAN</td>
+                                                <td>TG5938</td>
+                                                <td>LM11TA-26</td>
+                                                </td>
+                                                <td>
+                                                    <!--<td></td>-->
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>CABALLERO ALIPAZAGA JUAN ERWIN</td>
+                                                <td>BEIGE</td>
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="tab_borders_icons-4" role="tabpanel">
+                                    <table class="table m-0">
+                                        <thead class="bg-fusion-50">
+                                            <tr>
+                                                <th colspan="3">Riezgo</th>
+                                                <th colspan="5">Calificación</th>
+                                            </tr>
+                                            <tr>
+                                                <th>CODIGO SBS</th>
+                                                <th>FECHA REPORTE</th>
+                                                <th>N° ENTIDADES</th>
+                                                <th>OK</th>
+                                                <th>CPP</th>
+                                                <th>DEF</th>
+                                                <th>DUD</th>
+                                                <th>PER</th>
+                                            </tr>
+                                        </thead>
+
+
+
+                                        <tbody>
+                                            <tr>
+                                                <td>0036413662</td>
+                                                <td>20221231</td>
+                                                <td>003</td>
+                                                <td>100</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                    <table class="table m-0">
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="badge badge-success">OK</span></td>
+                                                <td><span class="badge badge-info">CPP</span></td>
+                                                <td><span class="badge badge-danger">DEF</span></td>
+                                                <td><span class="badge badge-warning">DUD</span></td>
+                                                <td><span class="badge badge-secondary">PER</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>NORMAL</span></td>
+                                                <td><span>CON PROBLEMAS POTENCIALES</span></td>
+                                                <td><span>DEFICIENTE</span></td>
+                                                <td><span>DUDOSO</span></td>
+                                                <td><span>PERDIDA</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table m-0">
+                                        <thead class="bg-fusion-50">
+                                            <tr>
+                                                <th>Entidad</th>
+                                                <th>Saldo</th>
+                                                <th>Clasificación</th>
+                                                <th>Condición</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>417.86000000000001</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>18.34</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>66.049999999999997</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>43.799999999999997</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO FALABELLA PER� S A</td>
+                                                <td>193.43000000000001</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>1563.74</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>5576.7399999999998</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>168.38999999999999</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO FALABELLA PER� S A</td>
+                                                <td>2000</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO FALABELLA PER� S A</td>
+                                                <td>337.73000000000002</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>2400</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>36.229999999999997</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>58.560000000000002</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO FALABELLA PER� S A</td>
+                                                <td>1468.8399999999999</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>0.48999999999999999</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>SCOTIABANK PERU S A A</td>
+                                                <td>1109.6099999999999</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td>BANCO DE CREDITO DEL PER�</td>
+                                                <td>2323.0900000000001</td>
+                                                <td><span class='badge badge-success'>OK</span></td>
+                                                <td>0</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+                <footer class="page-footer" role="contentinfo">
+                    <div class="d-flex align-items-center flex-1 text-muted">
+                        <span class="hidden-md-down fw-700">2023 © Ask Deeler</span>
+                    </div>
+                    <!--<div>
+                            <ul class="list-table m-0">
+                                <li><a href="intel_introduction.html" class="text-secondary fw-700">About</a></li>
+                                <li class="pl-3"><a href="info_app_licensing.html" class="text-secondary fw-700">License</a></li>
+                                <li class="pl-3"><a href="info_app_docs.html" class="text-secondary fw-700">Documentation</a></li>
+                                <li class="pl-3 fs-xl"><a href="https://wrapbootstrap.com/user/MyOrange" class="text-secondary" target="_blank"><i class="fal fa-question-circle" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>-->
+                </footer>
+                <!-- END Page Footer -->
+            </div>
+        </div>
+    </div><!-- END Page Settings -->
+
+    <!--Bootstrap -->
+
+    <script src="http://167.114.113.144/buscador/assets/js/jquery.js"></script>
+    <script src="http://167.114.113.144/buscador/assets/js/vendors.bundle.js"></script>
+    <script src="http://167.114.113.144/buscador/assets/js/datagrid/datatables/datatables.bundle.js"></script>
+    <script src="http://167.114.113.144/buscador/assets/js/app.bundle.js"></script>
+    <script src="http://167.114.113.144/buscador/assets/js/dropzone.js"></script>
+    <!-- MetisMenu -->
+
+    <!-- onoffcanvas -->
+</body>
+
+
+</html>
